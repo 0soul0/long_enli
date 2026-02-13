@@ -1,0 +1,218 @@
+:root {
+  --primary-teal: #00897B;
+  --primary-teal-light: #00796B;
+  --primary-teal-dark: #004D40;
+  --accent-orange: #F59B00;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --bg-light: #F8FAFC;
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --border-color: #E2E8F0;
+  --white: #FFFFFF;
+  --radius-lg: 1.5rem;
+  --radius-md: 1rem;
+}
+
+/* Base Scaling - Standard across devices */
+html {
+  font-size: 16px;
+  /* Default */
+}
+
+/* Mobile: Larger fonts and less padding for app feel */
+@media (max-width: 480px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Tablets and small laptops */
+@media (min-width: 768px) {
+  html {
+    font-size: 19px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.grid-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.01);
+  width: 100%;
+}
+
+.teal-card {
+  background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light));
+  color: var(--white);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  gap: 0.6rem;
+  font-size: 1rem;
+}
+
+.btn-orange {
+  background-color: var(--accent-orange);
+  color: var(--white);
+}
+
+.btn-teal-subtle {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.9rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  border-color: var(--primary-teal);
+}
+
+/* Bottom Nav - Lock it for mobile */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem 0;
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border-color);
+  z-index: 1000;
+}
+
+/* Only move to top for VERY WIDE screens (Desktop) */
+@media (min-width: 1024px) {
+  .bottom-nav {
+    top: 0;
+    bottom: auto;
+    justify-content: flex-end;
+    padding: 0.75rem 5%;
+    gap: 2.5rem;
+    border-top: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 1024px) {
+  .nav-item {
+    flex-direction: row;
+    font-size: 1rem;
+    font-weight: 600;
+    gap: 0.5rem;
+  }
+}
+
+.nav-item.active {
+  color: var(--primary-teal);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
