@@ -1,0 +1,30 @@
+# Root ignores
+node_modules
+.git
+.gitignore
+.dockerignore
+Dockerfile
+README.md
+LICENSE
+.vscode
+.idea
+*.log
+
+# Web ignores
+web/node_modules
+web/dist
+web/dist-ssr
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+web/pnpm-debug.log*
+web/lerna-debug.log*
+web/.git
+web/.gitignore
+web/.dockerignore
+web/Dockerfile
+web/README.md
+web/LICENSE
+web/.vscode
+web/.idea
+web/*.log
